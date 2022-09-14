@@ -1,0 +1,35 @@
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicy
+metadata:
+  name: iam-owner
+spec:
+  resourceRef:
+    kind: Project
+    external: projects/example-project
+  bindings:
+    - members:
+        - serviceAccount:saEmail
+      role: roles/owner
+---
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicyMember
+metadata:
+  name: iam-folder-admin
+spec:
+  member: serviceAccount:saEmail
+  role: roles/resourcemanager.folderAdmin
+  resourceRef:
+    kind: Folder
+    external: example-folder
+---
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicyMember
+metadata:
+  name: iam-billing-admin
+spec:
+  member: serviceAccount:saEmail
+  role: roles/billing.admin
+  resourceRef:
+    apiVersion: billing.cnrm.cloud.google.com/v1beta1
+    kind: BillingAccount
+    external: example-billingaccount
