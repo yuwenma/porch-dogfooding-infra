@@ -4,6 +4,8 @@ metadata:
   name: environments
   annotations:
     config.kubernetes.io/local-config: "true"
+info:
+  description: Porch dogfooding sample KCC
 pipeline:
   mutators:
     # We use public repo so Porch UI do not need  permissions 

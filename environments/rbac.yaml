@@ -23,10 +23,10 @@ spec:
   # TODO: Replace with group?
   bindings:
   - members:
-    - member: user:justinsb@google.com
+    - member: user:yourldap@google.com
     role: roles/editor
   - members:
-    - member: user:justinsb@google.com
+    - member: user:yourldap@google.com
     role: roles/container.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
