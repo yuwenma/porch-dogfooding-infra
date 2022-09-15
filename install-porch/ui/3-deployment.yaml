@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: # kpt-merge: backstage/backstage
+  name: backstage
+  namespace: backstage
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'apps|Deployment|backstage|backstage'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstage
+  template:
+    metadata:
+      labels:
+        app: backstage
+    spec:
+      containers:
+        - name: backstage
+          image: gcr.io/kpt-dev/kpt-backstage-plugins/backstage-plugin-cad:v0.1.1
+          ports:
+            - name: http
+              containerPort: 7007
+          env:
+            - name: AUTH_GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: cad-google-oauth-client
+                  key: client-id
+                  optional: false
+            - name: AUTH_GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cad-google-oauth-client
+                  key: client-secret
+                  optional: false
+---
+apiVersion: v1
+kind: Service
+metadata: # kpt-merge: backstage/backstage
+  name: backstage
+  namespace: backstage
+  annotations:
+    internal.kpt.dev/upstream-identifier: '|Service|backstage|backstage'
+spec:
+  selector:
+    app: backstage
+  ports:
+    - name: http
+      port: 7007
+      targetPort: http
