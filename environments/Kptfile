@@ -6,6 +6,7 @@ metadata:
     config.kubernetes.io/local-config: "true"
 pipeline:
   mutators:
-    - image: gcr.io/justinsb-root-20220725/set-name-prefix
-    - image: gcr.io/justinsb-root-20220725/generator-configconnectorcontext
-    - image: gcr.io/justinsb-root-20220725/bind-gcp-resources
+    # We use public repo so Porch UI do not need  permissions 
+    - image: gcr.io/kpt-fn-demo/set-name-prefix
+    - image: gcr.io/kpt-fn-demo/generator-configconnectorcontext
+    - image: gcr.io/kpt-fn-demo/bind-gcp-resources
