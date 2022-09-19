@@ -2,3 +2,5 @@ apiVersion: kpt.dev/v1
 kind: Kptfile
 metadata:
   name: child-porch
+info:
+  description: Porch dogfooding child installation
