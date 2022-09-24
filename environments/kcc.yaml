@@ -36,11 +36,6 @@ metadata: # kpt-merge: cnrm-system/cnrm-controller-manager-packagename
   namespace: cnrm-system
   annotations:
     config.kubernetes.io/local-config: generated
-  ownerReferences:
-  - apiVersion: core.cnrm.cloud.google.com/v1beta1
-    kind: ConfigConnectorContext
-    name: configconnectorcontext.core.cnrm.cloud.google.com
-    namespace: packagename
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMServiceAccount
