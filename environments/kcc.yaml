@@ -49,7 +49,7 @@ spec:
   displayName: ConfigConnector ServiceAccount
   resourceID: cc-robot
 ---
-apiVersion: porch.kpt.dev/v1alpha1
+apiVersion: config.porch.kpt.dev/v1alpha1
 kind: WorkloadIdentityBinding
 metadata: # kpt-merge: config-control/packagename-cnrm-controller-manager
   name: packagename-cnrm-controller-manager
