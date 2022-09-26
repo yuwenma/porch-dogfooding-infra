@@ -23,6 +23,9 @@ subjects:
   - kind: ServiceAccount
     name: porch-server
     namespace: porch-system
+  - kind: ServiceAccount
+    name: porch-controllers
+    namespace: porch-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
