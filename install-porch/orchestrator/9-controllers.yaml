@@ -38,14 +38,12 @@ spec:
       containers:
       - name: porch-controllers
         # Update to the image of your porch-controllers build.
-        image: gcr.io/kpt-fn-demo/porch-controllers:yuwen-gcloud-token-from-env
+        image: gcr.io/kpt-dev/porch-controllers:v0.0.9
         env:
         - name: GCP_PROJECT_ID
           value: example-google-project-id
         - name: HACK_ENABLE_LOOPBACK
           value: "1"
-        - name: GOOGLE_OAUTH_ACCESS_TOKEN
-          value: ""
 ---
 # TODO: Part of this is currently copied from porch/controller/config/rbac/role.yaml
 # We should find a better solution.
